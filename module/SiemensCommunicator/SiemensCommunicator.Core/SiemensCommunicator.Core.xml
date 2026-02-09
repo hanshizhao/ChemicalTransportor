@@ -4,6 +4,102 @@
         <name>SiemensCommunicator.Core</name>
     </assembly>
     <members>
+        <member name="T:SiemensCommunicator.Core.Interfaces.IPlcCacheManager">
+            <summary>
+            PLC 缓存管理器接口
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.GetAsync``1(System.Int64,System.String,System.Threading.CancellationToken)">
+            <summary>
+            从缓存获取指定数据点的值
+            </summary>
+            <typeparam name="T">返回值类型</typeparam>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointName">数据点名称</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>缓存中的值，如果不存在或已过期则返回 null</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.SetAsync(System.Int64,System.String,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            设置指定数据点的缓存值
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointName">数据点名称</param>
+            <param name="value">要缓存的值</param>
+            <param name="cancellationToken">取消令牌</param>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.GetBatchAsync(System.Int64,System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <summary>
+            批量获取多个数据点的缓存值
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointNames">数据点名称集合</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>数据点名称与值的字典</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.RefreshDataPointAsync(System.Int64,System.String,System.Threading.CancellationToken)">
+            <summary>
+            刷新指定数据点的缓存（从PLC读取最新值）
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointName">数据点名称</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>刷新是否成功</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.RefreshConnectionAsync(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            刷新指定连接的所有缓存数据
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>刷新的数据点数量</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.RefreshAllAsync(System.Threading.CancellationToken)">
+            <summary>
+            刷新所有连接的缓存数据
+            </summary>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>刷新的数据点总数</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.GetLastUpdateTimeAsync(System.Int64,System.String,System.Threading.CancellationToken)">
+            <summary>
+            获取指定数据点的最后更新时间
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointName">数据点名称</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>最后更新时间，如果不存在则返回 null</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.IsExpiredAsync(System.Int64,System.String,System.Threading.CancellationToken)">
+            <summary>
+            检查指定数据点的缓存是否过期
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointName">数据点名称</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>是否过期</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.ClearDataPointAsync(System.Int64,System.String,System.Threading.CancellationToken)">
+            <summary>
+            清除指定数据点的缓存
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointName">数据点名称</param>
+            <param name="cancellationToken">取消令牌</param>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.ClearConnectionAsync(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            清除指定连接的所有缓存
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="cancellationToken">取消令牌</param>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcCacheManager.ClearAllAsync(System.Threading.CancellationToken)">
+            <summary>
+            清除所有缓存
+            </summary>
+            <param name="cancellationToken">取消令牌</param>
+        </member>
         <member name="T:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository">
             <summary>
             PLC 配置仓储接口
@@ -52,6 +148,299 @@
         <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository.GetAllTagsAsync(System.Threading.CancellationToken)">
             <summary>
             获取所有标签
+            </summary>
+        </member>
+        <member name="T:SiemensCommunicator.Core.Interfaces.IPlcConnectionService">
+            <summary>
+            PLC 连接管理服务接口
+            </summary>
+        </member>
+        <member name="E:SiemensCommunicator.Core.Interfaces.IPlcConnectionService.StateChanged">
+            <summary>
+            连接状态改变事件
+            </summary>
+        </member>
+        <member name="E:SiemensCommunicator.Core.Interfaces.IPlcConnectionService.ErrorOccurred">
+            <summary>
+            错误发生事件
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConnectionService.ConnectAsync(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            连接到指定的 PLC
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>连接是否成功</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConnectionService.DisconnectAsync(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            断开指定 PLC 的连接
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>断开是否成功</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConnectionService.DisconnectAllAsync(System.Threading.CancellationToken)">
+            <summary>
+            断开所有 PLC 连接
+            </summary>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>断开的连接数量</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConnectionService.GetStateAsync(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            获取指定连接的状态
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>连接状态</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConnectionService.GetAllStatesAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取所有连接的状态
+            </summary>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>连接ID与状态的字典</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConnectionService.SetActiveConnectionAsync(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            设置活动的连接
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>设置是否成功</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConnectionService.GetActiveConnectionAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取当前活动的连接ID
+            </summary>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>活动连接ID，如果没有活动连接则返回 null</returns>
+        </member>
+        <member name="T:SiemensCommunicator.Core.Interfaces.IPlcDataService">
+            <summary>
+            PLC 数据读写服务接口
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcDataService.ReadAsync(System.Int64,System.String,System.Threading.CancellationToken)">
+            <summary>
+            读取指定数据点的值（返回对象类型）
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointName">数据点名称</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>读取的值</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcDataService.ReadAsync``1(System.Int64,System.String,System.Threading.CancellationToken)">
+            <summary>
+            读取指定数据点的值（返回强类型）
+            </summary>
+            <typeparam name="T">返回值类型</typeparam>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointName">数据点名称</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>读取的值</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcDataService.ReadBatchAsync(System.Int64,System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <summary>
+            批量读取多个数据点的值
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointNames">数据点名称集合</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>数据点名称与值的字典</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcDataService.WriteAsync(System.Int64,System.String,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            写入指定数据点的值
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointName">数据点名称</param>
+            <param name="value">要写入的值</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>写入是否成功</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcDataService.WriteBatchAsync(System.Int64,System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+            批量写入多个数据点的值
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPoints">数据点名称与值的字典</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>成功写入的数据点数量</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcDataService.ReadRawAsync(System.Int64,System.Int32,System.Int32,SiemensCommunicator.Core.Interfaces.VarType,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            原始方式读取 PLC 数据（直接指定地址）
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dbNumber">数据块编号</param>
+            <param name="startByte">起始字节</param>
+            <param name="varType">变量类型</param>
+            <param name="dataCount">数据数量</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>读取的值</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcDataService.WriteRawAsync(System.Int64,System.Int32,System.Int32,SiemensCommunicator.Core.Interfaces.VarType,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            原始方式写入 PLC 数据（直接指定地址）
+            </summary>
+            <param name="connectionId">连接ID</param>
+            <param name="dbNumber">数据块编号</param>
+            <param name="startByte">起始字节</param>
+            <param name="varType">变量类型</param>
+            <param name="value">要写入的值</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>写入是否成功</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcDataService.GetCachedValueAsync``1(System.Int64,System.String,System.Threading.CancellationToken)">
+            <summary>
+            从缓存中获取数据点的值
+            </summary>
+            <typeparam name="T">返回值类型</typeparam>
+            <param name="connectionId">连接ID</param>
+            <param name="dataPointName">数据点名称</param>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>缓存中的值，如果不存在或已过期则返回 null</returns>
+        </member>
+        <member name="T:SiemensCommunicator.Core.Interfaces.VarType">
+            <summary>
+            PLC 变量类型枚举
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.Byte">
+            <summary>
+            字节（8位）
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.Word">
+            <summary>
+            字（16位）
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.DWord">
+            <summary>
+            双字（32位）
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.Real">
+            <summary>
+            浮点数（32位）
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.Bool">
+            <summary>
+            布尔值（1位）
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.Int">
+            <summary>
+            整数（16位）
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.DInt">
+            <summary>
+            双整数（32位）
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.String">
+            <summary>
+            字符串
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.Timer">
+            <summary>
+            定时器
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.Counter">
+            <summary>
+            计数器
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.LReal">
+            <summary>
+            浮点数双精度（64位）
+            </summary>
+        </member>
+        <member name="F:SiemensCommunicator.Core.Interfaces.VarType.ByteArray">
+            <summary>
+            字节数组
+            </summary>
+        </member>
+        <member name="T:SiemensCommunicator.Core.Interfaces.ISiemensCommunicatorInitializer">
+            <summary>
+            Siemens 通讯模块初始化器接口
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.ISiemensCommunicatorInitializer.InitializeAsync(System.Threading.CancellationToken)">
+            <summary>
+            初始化模块，连接所有活动配置的 PLC
+            </summary>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>初始化结果</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.ISiemensCommunicatorInitializer.ShutdownAsync(System.Threading.CancellationToken)">
+            <summary>
+            停止模块，断开所有 PLC 连接
+            </summary>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>停止结果</returns>
+        </member>
+        <member name="T:SiemensCommunicator.Core.Interfaces.InitializationResult">
+            <summary>
+            初始化结果
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Interfaces.InitializationResult.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Interfaces.InitializationResult.ConnectedCount">
+            <summary>
+            成功连接的 PLC 数量
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Interfaces.InitializationResult.FailedCount">
+            <summary>
+            失败连接的 PLC 数量
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Interfaces.InitializationResult.TotalCount">
+            <summary>
+            总 PLC 数量
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Interfaces.InitializationResult.FailedConnectionIds">
+            <summary>
+            连接失败的 PLC ID 列表
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Interfaces.InitializationResult.Errors">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:SiemensCommunicator.Core.Interfaces.ShutdownResult">
+            <summary>
+            停止结果
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Interfaces.ShutdownResult.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Interfaces.ShutdownResult.DisconnectedCount">
+            <summary>
+            成功断开的 PLC 数量
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Interfaces.ShutdownResult.Errors">
+            <summary>
+            错误信息
             </summary>
         </member>
         <member name="T:SiemensCommunicator.Core.Models.PlcConnection">

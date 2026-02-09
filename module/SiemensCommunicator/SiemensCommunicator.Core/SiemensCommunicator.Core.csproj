@@ -5,6 +5,7 @@
 		<TargetFramework>net10.0</TargetFramework>
 		<NoWarn>1701;1702;1591</NoWarn>
 		<DocumentationFile>SiemensCommunicator.Core.xml</DocumentationFile>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>

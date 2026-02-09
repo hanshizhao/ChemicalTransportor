@@ -4,6 +4,87 @@
         <name>SiemensCommunicator.Application</name>
     </assembly>
     <members>
+        <member name="T:SiemensCommunicator.Application.Background.PlcCacheRefreshBackgroundService">
+            <summary>
+            PLC 缓存刷新后台服务
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Background.PlcCacheRefreshBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Background.PlcCacheRefreshBackgroundService.InitializeTimersAsync(System.Threading.CancellationToken)">
+            <summary>
+            初始化所有活动连接的定时器
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Background.PlcCacheRefreshBackgroundService.CreateTimer(System.Int64,System.Int32)">
+            <summary>
+            为指定连接创建定时器
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Background.PlcCacheRefreshBackgroundService.RemoveTimer(System.Int64)">
+            <summary>
+            移除指定连接的定时器
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Background.PlcCacheRefreshBackgroundService.RefreshConnectionCacheAsync(System.Int64)">
+            <summary>
+            刷新连接缓存
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Background.PlcCacheRefreshBackgroundService.CleanupTimers">
+            <summary>
+            清理所有定时器
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Background.PlcCacheRefreshBackgroundService.AddOrUpdateTimer(System.Int64,System.Int32)">
+            <summary>
+            为连接添加或更新定时器（供外部调用）
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Background.PlcCacheRefreshBackgroundService.RemoveConnectionTimer(System.Int64)">
+            <summary>
+            移除连接定时器（供外部调用）
+            </summary>
+        </member>
+        <member name="T:SiemensCommunicator.Application.Services.PlcCacheManager">
+            <summary>
+            PLC 缓存管理器实现
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.GetAsync``1(System.Int64,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.SetAsync(System.Int64,System.String,System.Object,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.GetBatchAsync(System.Int64,System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.RefreshDataPointAsync(System.Int64,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.RefreshConnectionAsync(System.Int64,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.RefreshAllAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.GetLastUpdateTimeAsync(System.Int64,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.IsExpiredAsync(System.Int64,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.ClearDataPointAsync(System.Int64,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.ClearConnectionAsync(System.Int64,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcCacheManager.ClearAllAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
         <member name="T:SiemensCommunicator.Application.Services.PlcConfigurationRepository">
             <summary>
             PLC 配置仓储实现
@@ -36,16 +117,99 @@
         <member name="M:SiemensCommunicator.Application.Services.PlcConfigurationRepository.GetAllTagsAsync(System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
+        <member name="T:SiemensCommunicator.Application.Services.PlcConnectionService">
+            <summary>
+            PLC 连接管理服务实现
+            </summary>
+        </member>
+        <member name="E:SiemensCommunicator.Application.Services.PlcConnectionService.StateChanged">
+            <inheritdoc />
+        </member>
+        <member name="E:SiemensCommunicator.Application.Services.PlcConnectionService.ErrorOccurred">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConnectionService.ConnectAsync(System.Int64,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConnectionService.DisconnectAsync(System.Int64,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConnectionService.DisconnectAllAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConnectionService.GetStateAsync(System.Int64,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConnectionService.GetAllStatesAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConnectionService.SetActiveConnectionAsync(System.Int64,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConnectionService.GetActiveConnectionAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConnectionService.GetPlc(System.Int64)">
+            <summary>
+            获取指定连接ID的Plc实例（供内部服务使用）
+            </summary>
+        </member>
+        <member name="T:SiemensCommunicator.Application.Services.PlcDataService">
+            <summary>
+            PLC 数据读写服务实现
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcDataService.ReadAsync(System.Int64,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcDataService.ReadAsync``1(System.Int64,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcDataService.ReadBatchAsync(System.Int64,System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcDataService.WriteAsync(System.Int64,System.String,System.Object,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcDataService.WriteBatchAsync(System.Int64,System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcDataService.ReadRawAsync(System.Int64,System.Int32,System.Int32,SiemensCommunicator.Core.Interfaces.VarType,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcDataService.WriteRawAsync(System.Int64,System.Int32,System.Int32,SiemensCommunicator.Core.Interfaces.VarType,System.Object,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcDataService.GetCachedValueAsync``1(System.Int64,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:SiemensCommunicator.Application.Services.SiemensCommunicatorInitializer">
+            <summary>
+            Siemens 通讯模块初始化器实现
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.SiemensCommunicatorInitializer.InitializeAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.SiemensCommunicatorInitializer.ShutdownAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
         <member name="T:SiemensCommunicator.Application.SystemAppService">
             <summary>
-            系统服务接口
+            SiemensCommunicator 模块 API 服务
             </summary>
         </member>
         <member name="M:SiemensCommunicator.Application.SystemAppService.GetDescription">
             <summary>
-            获取系统描述
+            获取模块描述
             </summary>
-            <returns></returns>
+            <returns>模块描述信息</returns>
+        </member>
+        <member name="M:SiemensCommunicator.Application.SystemAppService.GetAllConnectionStates">
+            <summary>
+            获取所有 PLC 连接状态（健康检查接口）
+            </summary>
+            <returns>连接ID与状态的字典</returns>
         </member>
     </members>
 </doc>

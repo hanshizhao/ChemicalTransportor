@@ -6,6 +6,7 @@
 		<NoWarn>1701;1702;1591</NoWarn>
 		<DocumentationFile>SiemensCommunicator.Application.xml</DocumentationFile>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
