@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SiemensCommunicator.Application.Background;
 
 namespace ChemicalTransportor.Web.Core
 {
@@ -14,6 +15,10 @@ namespace ChemicalTransportor.Web.Core
             services.AddJwt<JwtHandler>();
 
             services.AddCorsAccessor();
+
+            services.AddMemoryCache();
+
+            services.AddHostedService<PlcCacheRefreshBackgroundService>();
 
             services.AddControllers()
                     .AddInjectWithUnifyResult();
