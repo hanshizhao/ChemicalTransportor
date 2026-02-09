@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<LangVersion>preview</LangVersion>
+		<TargetFramework>net10.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ChemicalTransportor.EntityFramework.Core\ChemicalTransportor.EntityFramework.Core.csproj" />
+	</ItemGroup>
+
+</Project>

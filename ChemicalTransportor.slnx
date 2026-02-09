@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="module/SiemensCommunicator/SiemensCommunicator.Application/SiemensCommunicator.Application.csproj" Id="3ace4546-a54f-414f-9576-5ec1268a7815" />
+  <Project Path="module/SiemensCommunicator/SiemensCommunicator.Core/SiemensCommunicator.Core.csproj" Id="663e7dab-fefe-4c2e-934c-913cfa54b769" />
+  <Project Path="src/ChemicalTransportor/ChemicalTransportor.Application/ChemicalTransportor.Application.csproj" Id="08c5fc7b-e90f-488b-a7df-edee1f966ee4" />
+  <Project Path="src/ChemicalTransportor/ChemicalTransportor.Core/ChemicalTransportor.Core.csproj" Id="6f5597d6-0543-4707-8097-15fa838720ea" />
+  <Project Path="src/ChemicalTransportor/ChemicalTransportor.Database.Migrations/ChemicalTransportor.Database.Migrations.csproj" Id="83eb9f8a-4729-49d0-8119-28886aa218aa" />
+  <Project Path="src/ChemicalTransportor/ChemicalTransportor.EntityFramework.Core/ChemicalTransportor.EntityFramework.Core.csproj" Id="aee871eb-022a-47f1-b504-8ef615e358f9" />
+  <Project Path="src/ChemicalTransportor/ChemicalTransportor.Web.Core/ChemicalTransportor.Web.Core.csproj" Id="ec079845-0403-4f84-b778-f05c281bd029" />
+  <Project Path="src/ChemicalTransportor/ChemicalTransportor.Web.Entry/ChemicalTransportor.Web.Entry.csproj" Id="7273c371-1f05-4ec6-98f0-6bbe4759fce9" />
+</Solution>
