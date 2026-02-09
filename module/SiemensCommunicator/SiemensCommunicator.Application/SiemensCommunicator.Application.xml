@@ -4,6 +4,38 @@
         <name>SiemensCommunicator.Application</name>
     </assembly>
     <members>
+        <member name="T:SiemensCommunicator.Application.Services.PlcConfigurationRepository">
+            <summary>
+            PLC 配置仓储实现
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConfigurationRepository.GetAllConnectionsAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConfigurationRepository.GetConnectionAsync(System.Int64,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConfigurationRepository.GetAllDataPointsAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConfigurationRepository.GetDataPointsByConnectionAsync(System.Int64,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConfigurationRepository.GetDataPointsByGroupAsync(System.Int64,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConfigurationRepository.GetDataPointAsync(System.Int64,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConfigurationRepository.GetDataPointByNameAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConfigurationRepository.GetAllGroupsAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SiemensCommunicator.Application.Services.PlcConfigurationRepository.GetAllTagsAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
         <member name="T:SiemensCommunicator.Application.SystemAppService">
             <summary>
             系统服务接口

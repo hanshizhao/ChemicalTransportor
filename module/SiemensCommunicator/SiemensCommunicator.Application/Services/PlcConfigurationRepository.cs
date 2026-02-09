@@ -7,8 +7,7 @@ namespace SiemensCommunicator.Application.Services;
 /// <summary>
 /// PLC 配置仓储实现
 /// </summary>
-[ITransient]
-public class PlcConfigurationRepository : IPlcConfigurationRepository
+public class PlcConfigurationRepository : IPlcConfigurationRepository, ITransient
 {
     private readonly SiemensCommunicatorDbContext _dbContext;
 

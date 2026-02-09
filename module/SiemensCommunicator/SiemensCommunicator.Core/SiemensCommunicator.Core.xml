@@ -4,6 +4,56 @@
         <name>SiemensCommunicator.Core</name>
     </assembly>
     <members>
+        <member name="T:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository">
+            <summary>
+            PLC 配置仓储接口
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository.GetAllConnectionsAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取所有连接配置
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository.GetConnectionAsync(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            根据ID获取连接配置
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository.GetAllDataPointsAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取所有数据点
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository.GetDataPointsByConnectionAsync(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            根据连接ID获取数据点
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository.GetDataPointsByGroupAsync(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            根据分组ID获取数据点
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository.GetDataPointAsync(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            根据ID获取数据点
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository.GetDataPointByNameAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            根据名称获取数据点
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository.GetAllGroupsAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取所有分组
+            </summary>
+        </member>
+        <member name="M:SiemensCommunicator.Core.Interfaces.IPlcConfigurationRepository.GetAllTagsAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取所有标签
+            </summary>
+        </member>
         <member name="T:SiemensCommunicator.Core.Models.PlcConnection">
             <summary>
             PLC 连接配置实体

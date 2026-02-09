@@ -21,6 +21,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\SiemensCommunicator.Core\SiemensCommunicator.Core.csproj" />
+		<ProjectReference Include="..\SiemensCommunicator.EntityFramework.Core\SiemensCommunicator.EntityFramework.Core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
