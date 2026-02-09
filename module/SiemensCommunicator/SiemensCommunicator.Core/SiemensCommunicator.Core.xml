@@ -4,5 +4,225 @@
         <name>SiemensCommunicator.Core</name>
     </assembly>
     <members>
+        <member name="T:SiemensCommunicator.Core.Models.PlcConnection">
+            <summary>
+            PLC 连接配置实体
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.Name">
+            <summary>
+            连接名称
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.CpuType">
+            <summary>
+            PLC CPU 类型
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.Ip">
+            <summary>
+            PLC IP 地址
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.Rack">
+            <summary>
+            机架号
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.Slot">
+            <summary>
+            插槽号
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.CacheRefreshInterval">
+            <summary>
+            缓存刷新间隔（毫秒）
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.IsActive">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.UpdatedAt">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcConnection.DataPoints">
+            <summary>
+            数据点集合
+            </summary>
+        </member>
+        <member name="T:SiemensCommunicator.Core.Models.PlcDataPoint">
+            <summary>
+            PLC 数据点配置实体
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.ConnectionId">
+            <summary>
+            关联的连接ID
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.GroupId">
+            <summary>
+            分组ID
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.Name">
+            <summary>
+            数据点名称
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.Description">
+            <summary>
+            数据点描述
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.DbNumber">
+            <summary>
+            数据块编号
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.StartByte">
+            <summary>
+            起始字节
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.BitOffset">
+            <summary>
+            位偏移
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.VarType">
+            <summary>
+            变量类型
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.DataCount">
+            <summary>
+            数据数量
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.EnableCache">
+            <summary>
+            是否启用缓存
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.Unit">
+            <summary>
+            单位
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.ConversionFormula">
+            <summary>
+            转换公式
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.Tags">
+            <summary>
+            标签集合（JSON 格式存储）
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.UpdatedAt">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.Connection">
+            <summary>
+            关联的PLC连接
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcDataPoint.Group">
+            <summary>
+            关联的分组
+            </summary>
+        </member>
+        <member name="T:SiemensCommunicator.Core.Models.PlcGroup">
+            <summary>
+            PLC 分组实体
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcGroup.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcGroup.Name">
+            <summary>
+            分组名称
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcGroup.Description">
+            <summary>
+            分组描述
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcGroup.SortOrder">
+            <summary>
+            排序顺序
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcGroup.DataPoints">
+            <summary>
+            数据点集合
+            </summary>
+        </member>
+        <member name="T:SiemensCommunicator.Core.Models.PlcTag">
+            <summary>
+            PLC 标签实体
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcTag.Id">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcTag.Name">
+            <summary>
+            标签名称
+            </summary>
+        </member>
+        <member name="P:SiemensCommunicator.Core.Models.PlcTag.Color">
+            <summary>
+            标签颜色（十六进制颜色代码）
+            </summary>
+        </member>
     </members>
 </doc>
