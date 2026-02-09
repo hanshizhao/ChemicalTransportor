@@ -14,6 +14,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\ChemicalTransportor.Application\ChemicalTransportor.Application.csproj" />
 		<ProjectReference Include="..\ChemicalTransportor.Database.Migrations\ChemicalTransportor.Database.Migrations.csproj" />
+		<ProjectReference Include="..\..\..\module\SiemensCommunicator\SiemensCommunicator.Application\SiemensCommunicator.Application.csproj" />
 	</ItemGroup>
 
 </Project>
