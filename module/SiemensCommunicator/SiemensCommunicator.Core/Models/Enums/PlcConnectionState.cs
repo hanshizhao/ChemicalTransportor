@@ -1,0 +1,9 @@
+namespace SiemensCommunicator.Core.Models.Enums;
+
+public enum PlcConnectionState
+{
+    Disconnected = 0,
+    Connecting = 1,
+    Connected = 2,
+    Error = 3
+}
