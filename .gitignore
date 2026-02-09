@@ -68,6 +68,9 @@ publish/
 # Visual Studio Code
 .vscode/
 
+# Claude Code
+.claude/
+
 # Windows
 Thumbs.db
 ehthumbs.db
